@@ -22,4 +22,5 @@ urlpatterns = [
     # path('board', views.index),
     path('board/', include('board.urls')),
     path('common/', include('common.urls')),
+    path('', views.index, name='index'),  # '/' 에 해당되는 path
 ]
