@@ -19,4 +19,3 @@ def signup(request):
     else:
         form = UserForm()
     return render(request, 'common/signup.html', {'form': form})
-# -------------------------------------------------------------------------
