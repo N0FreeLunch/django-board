@@ -119,6 +119,7 @@
         </div>
         <h5 class="border-bottom my-3 py-2">{{question.answer_set.count}}개의 답변이 있습니다.</h5>
         {% for answer in question.answer_set.all %}
+        <a name="answer_{{ answer.id }}"></a>
         <div class="row my-3">
             <div class="col-1">  <!-- 추천영역 -->
                 <div class="bg-light text-center p-3 border font-weight-bolder mb-1">{{answer.voter.count}}</div>
@@ -126,7 +127,6 @@
                     class="recommend btn btn-sm btn-secondary btn-block my-1">추천</a>
             </div>
             <div class="col-11">  <!-- 답변영역 -->
-                
                 <div class="card">
                     <div class="card-body">
                         <div class="card-text" style="white-space: pre-line;">{{ answer.content }}</div>
