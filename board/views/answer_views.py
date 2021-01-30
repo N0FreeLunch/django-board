@@ -8,9 +8,6 @@ from ..models import Question, Answer
 
 @login_required(login_url='common:login')
 def answer_create(request, question_id):
-    """
-    board 답변등록
-    """
     question = get_object_or_404(Question, pk=question_id)
     # question.answer_set.create(content=request.POST.get('content'), create_date=timezone.now())
     if request.method == "POST":
@@ -32,9 +29,6 @@ def answer_create(request, question_id):
 
 @login_required(login_url='common:login')
 def answer_modify(request, answer_id):
-    """
-    board 답변수정
-    """
     answer = get_object_or_404(Answer, pk=answer_id)
     if request.user != answer.author:
         messages.error(request, '수정권한이 없습니다')
