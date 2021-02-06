@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from board import views
 from board.views import base_views
+import common.views as common_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +26,7 @@ urlpatterns = [
     path('common/', include('common.urls')),
     # path('', views.index, name='index'),  # '/' 에 해당되는 path
     path('', base_views.index, name='index'),  # '/' 에 해당되는 path
+    path('error', common_views.error, name='index'),
 ]
 
 handler404 = 'common.views.page_not_found'
