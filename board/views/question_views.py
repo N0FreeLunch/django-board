@@ -8,10 +8,6 @@ from ..models import Question
 
 @login_required(login_url='common:login')
 def question_create(request):
-    """
-    board 질문등록
-    """
-
     if request.method == 'POST':
         form = QuestionForm(request.POST)
         # print(request.POST["subject"])
@@ -19,7 +15,9 @@ def question_create(request):
         if form.is_valid():
             question = form.save(commit=False)
             question.create_date = timezone.now()
+            question.author = request.user
             question.save()
+            print(question.__dict__)
             return redirect('board:index')
     else:
         form = QuestionForm()
