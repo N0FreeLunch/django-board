@@ -130,3 +130,5 @@ dmypy.json
 
 secret.json
 .site
+static/admin
+static/admin/*
